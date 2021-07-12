@@ -2,8 +2,7 @@
 title: "Will Toronto's Crime Rate Ever Decrease?"
 author: "Jin Long Cao"
 date: 2020-09-27
-categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
