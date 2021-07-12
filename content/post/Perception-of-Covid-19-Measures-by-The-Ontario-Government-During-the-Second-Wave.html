@@ -1,0 +1,124 @@
+---
+title: Investigating Perception and Compliance with Ontario's COVID-19 Containment Measures
+author: "Jin Long Cao, Brian Diep, Johnathan Tillman, Tanya Woloshansky"
+date: '2020-10-02'
+output: html_document
+tags:
+- R Markdown
+- plot
+- regression
+categories: R
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="executive-summary" class="section level2">
+<h2>Executive summary</h2>
+<p>Petit Poll has been asked by the Conservative Party of Ontario to survey the Ontario public in regards to the current COVID-19 pandemic to better understand whether people are likely to vote for the Party in the upcoming general election. We conducted a mock survey using simulated respondents to give a cursory look into the broader trends in public health awareness regarding COVID-19. However, since our survey included questions relying on respondents to report their personal habits and knowledge regarding COVID-19, we believe these responses could be embellished to view the respondent in a more favourable light. The survey also underrepresents the younger voters of Ontario and has a majority response from Conservative voters and those greatly impacted by COVID-19 policies.</p>
+<p>We find with our simulated data that there still exists a significant degree of non-compliance that is not ideal for containing the pandemic. In particular, we have evidence that media misinformation and social media may be a key factor in these elevated non-compliance rates. In summary, we find that government strategy should be to increase public information and trust by targeting social media with information campaigns. Future studies should use a similar sampling population and study their social media habits. These studies would enable our employer to target Ontarians with information on party policies to positively impact their view of the Conservative Party.</p>
+</div>
+<div id="part-i.-introduction" class="section level2">
+<h2>Part I. Introduction</h2>
+<p>The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, reduce the negative impacts of the pandemic, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey (using simulated data) to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. We find that non-compliance with public health guidelines remains a significant obstacle to combating the pandemic. Our key findings suggest that misinformation, specifically that relating to social media use, are significant contributing factors towards these less than optimal compliance rates. We expect that the Conservative party and government can seek to reduce these levels of misinformation through the targeting of information campaigns on social media platforms.</p>
+</div>
+<div id="part-ii.-survey-methodology" class="section level2">
+<h2>Part II. Survey methodology</h2>
+<p>The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit ‘5’. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.</p>
+<p>A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (Changbao and Thomspon, 2020).</p>
+<p>In the end we received a response from a much smaller subset of the population frame which resulted in roughly 1 500 data points. We expect the survey to cost roughly $60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.</p>
+</div>
+<div id="part-iii.-survey" class="section level2">
+<h2>Part III. Survey</h2>
+<p>The questions found in the survey can be found in the appendix below. The survey can be accessed at the following link: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTGAjWKZ4oBDcpyopp-0p1tGgKqgIXzkcm6bMw8Yoe8IBkyQ/viewform?usp=sf_link" class="uri">https://docs.google.com/forms/d/e/1FAIpQLSdTGAjWKZ4oBDcpyopp-0p1tGgKqgIXzkcm6bMw8Yoe8IBkyQ/viewform?usp=sf_link</a></p>
+</div>
+<div id="part-iv.-simulated-survey-results" class="section level2">
+<h2>Part IV. Simulated Survey Results</h2>
+<p>For the purposes of this report, our dataset was simulated through some assumptions made about the population frame. For example, age demographics were sourced from Statistics Canada and adjusted for non-response bias to provide an accurate representation of the potential survey respondents.</p>
+</div>
+<div id="iv.a-demographic-data" class="section level1">
+<h1>IV.a Demographic Data</h1>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/age_graph-1.png" width="672" /></p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/vulnerable_graph-1.png" width="672" /></p>
+<p>For the purposes of this question, participants were told that vulnerable groups included (but were not limited to) those over the age of 60, obese individuals, and those with pre-existing health conditions like respiratory infections, any type of cancer, and neurological conditions like dementia (Government of Canada, 2020).</p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/living_graph-1.png" width="672" /></p>
+<p>For the purposes of this question, COVID hotspots included Toronto (excluding the Greater Toronto Area), Ottawa, Windsor-Essex, and Peel region. These regions have been identified as consistently having a higher count of new cases as compared to the rest of Ontario (Mae Jones, 2020).</p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/political_graph-1.png" width="672" /></p>
+<p>Looking at our demographic data, we see that the majority of respondents were in the 35-44 category with the distribution of respondent ages skewing older (Figure 1.1). We also find that a large majority (79.5%) of those polled lived in COVID hotspot regions (Figure 1.2). Furthermore, around 20.5% of those surveyed also considered themselves a member of a COVID vulnerable population (Figure 1.3). In Figure 1.4 we can also see that the majority of respondents to the survey considered themselves to be affiliated with the Conservative Party already.</p>
+</div>
+<div id="iv.b-respondent-information-and-trust-in-covid-19-resources" class="section level1">
+<h1>IV.b Respondent Information and Trust in COVID-19 Resources</h1>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/primary_source-1.png" width="672" /></p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/trustworthy_source-1.png" width="672" /></p>
+<p>We polled respondents on how they gather information about COVID-19 and their attitudes and trust towards different media sources. In Figure 2.1 above, we find that the majority of people get their news from social media and television. In Figure 2.2. we find however that the most trusted sources of news are television news and newspapers.</p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/personal_confidence-1.png" width="672" /></p>
+<p>For this question, respondents were asked to self-report their knowledgeability of COVID-19 information. 1 was considered to be least knowledgeable and 5 was considered most knowledgeable.</p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/conservative-1.png" width="672" /></p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/doug_ford-1.png" width="672" /></p>
+<p>Figures 2.3 and 2.4 polled respondents on their views towards the Ontario Progressive Conservative Party and Doug Ford in relation to handling COVID-19. In both cases, a majority of respondents had trust in the party’s leadership during the pandemic.</p>
+</div>
+<div id="iv.c.-respondent-habits-during-covid-19" class="section level1">
+<h1>IV.c. Respondent Habits During COVID-19</h1>
+<pre><code>## Warning: package &#39;plotrix&#39; was built under R version 3.6.3</code></pre>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/mask-1.png" width="672" /></p>
+<p>For this purposes of this question, respondents were polled on how often they wear a mask when outdoors, in public, where social distancing is not possible.</p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/social_bubble-1.png" width="672" /></p>
+<p>For the purposes of this question, a social bubble/circle is defined as a group of no more than 10 people (including household members) who can interact with each other without following social distancing protocols (Ministry of Health Ontario, 2020).</p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/follow_rules-1.png" width="672" /></p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/non-essential-1.png" width="672" /></p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/travel_Canada-1.png" width="672" /></p>
+<p><img src="/post/Perception-of-Covid-19-Measures-by-The-Ontario-Government-During-the-Second-Wave_files/figure-html/travel_out_Canada-1.png" width="672" /></p>
+<div id="part-v.-discussion" class="section level2">
+<h2>Part V. Discussion</h2>
+<p>The handling of the COVID-19 pandemic has been a challenge, leaving anxious citizens looking for strong leadership. Although limited by federal restrictions Ontario’s government has passed several measures to help control spread of the virus, including mandating that masks be worn indoors, limiting gatherings of people, and closing businesses when necessary (Public Health Ontario, 2020). While public safety is the number one goal of these changes, the public perception of the government’s handling of the pandemic is duly important to Ontarians and the Conservative party. More people who agree with the restrictions set by the government will follow them and the governing party can campaign on successes during the pandemic to secure office for another term.</p>
+<p>Our survey results show that Ontarians had varying degrees of compliance with the various guidelines set forth by the provincial government. For example, despite the government’s urging for citizens to wear a mask while out in public we can see from Figure 3.1 it is evident that their guideline is taken lightly. Almost 25% of respondents were not wearing a mask most of the time while in public, with only 55.7% “Always” or “Most of the Time” wearing a mask. Ideally that number would be closer to 100%, leaving room only for those with medical issues to abstain.</p>
+<p>Furthermore, Figure 3.4 demonstrates not only are people leaving their homes about 3 times per week for non-essential purposes, but more worryingly, most are not following social distancing rules set by the establishment once they are out of the house (Figure 3.1). Another point of weakness is adherence to social bubbles/circles. From Figure 3.2, we see that only 71.1% of survey participants claimed to be participating in social bubbling.</p>
+<p>On the other hand, one area that has high levels of compliance is non-essential travel. From Figures 3.5 and 3.6 it appears an overwhelming majority of respondents are forgoing travelling during the pandemic.</p>
+<p>There are possibly several reasons for non-compliance of governmental suggestions but Figures 2.4 and 2.5 show it is unlikely due to the public’s opinion of the management of the pandemic. The data vindicates Doug Ford and the Conservative government, as most respondents approved of both his and the party’s management of the pandemic. Therefore, it indicates that the majority of citizens approve of the measures taken. However, it should be noted that a large percentage of respondents (~40%), identified as associates of the Conservative party to which our premier belongs.</p>
+<p>Reasons for failing to follow the government’s instruction on personal hygiene and distancing measures could arise from the sources of information. Our results show notoriously problematic sources of information are both sought out and trusted. Social media (29.6%) and information from friends and family (25.2%) were the main sources of information regarding COVID-19, while more credible sources such as newspapers (19.8%) and television network news reports (15%) were less popular as shown by Figures 2.1 and 2.2. Finally, many respondents did not feel confident in their knowledge of COVID-19-evident from Figure 2.3-which could explain lack of commitment to following government measures.</p>
+<p>Doug Ford and the Conservative Party’s leadership may have a high approval in handling the pandemic however, our data show more needs to be done to ensure directions made by the government are followed. Poor sources of information and lack of confidence in personal knowledge could be the reason for non-compliance of restrictions to control the pandemic. One solution could be to invest more in educating the general public on which sources of information to follow and trust. Another resolution could be to work with social media companies to limit the spread of misinformation and promote pages related to trusted sources such as the Ontario government or Ontario Public Health.</p>
+</div>
+<div id="part-vi.-weaknesses-and-next-steps" class="section level2">
+<h2>Part VI. Weaknesses and Next Steps</h2>
+<p>One major weakness of our survey is the potential for self-reporting bias. Respondents are more likely to offer responses that they view would portray them in a better light. A specific question that may have inflated responses is how respondents view their own knowledge on COVID-19.</p>
+<p>Conducting our survey through residential phones may also have introduced non-response bias in which the younger age brackets were not accurately represented. Individuals belonging to the younger age brackets are more likely to reside in households such that elders respond to their landline or live alone without a landline.</p>
+<p>Furthermore, as this poll is being conducted on behalf of the Progressive Conservative Party of Ontario, we are much more likely to receive responses from those who are affiliated with the party. This may further skew our survey results to include data points from those typically associated with the voter demographics.</p>
+<p>Additionally, the subject matter of the survey may lead to a response bias towards those who are directly affected by COVID-19, either being a member of or close to a member of a vulnerable population. These results gathered from this subset of the population are likely to show they are informed of COVID-19 and the best practices surrounding it.</p>
+<p>As we pointed out in our discussion above, social media is a key factor that can influence public information about health and other important sectors. Future studies that can be conducted should be concentrated on the social media use of Ontarians. Specifically, more insight into the types of social media used by citizens would provide the Conservative Party of Ontario avenues to target the demographic with policy information not limited to COVID-19. A follow up survey could also have a similar sampling frame and ask questions regarding the specific social media platforms they use and the average time spent browsing each in a day. All of this provides groundwork for the Conservative Party to reach out to its voter base as well as all Ontarians with further information.</p>
+</div>
+<div id="appendix" class="section level2">
+<h2>Appendix</h2>
+<p>The screenshots of the survey given to respondents can be found below.</p>
+<p><img src="Surveyquestions1.png" /><!-- --></p>
+<p><img src="Surveyquestions2.png" /><!-- --></p>
+<p><img src="Surveyquestions3.png" /><!-- --></p>
+<p><img src="Surveyquestions4.png" /><!-- --></p>
+<p><img src="Surveyquestions5.png" /><!-- --></p>
+<p><img src="Surveyquestions6.png" /><!-- --></p>
+<p><img src="Surveyquestions7.png" /><!-- --></p>
+<p><em>The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at the following link: <a href="https://github.com/JinLong-Cao/Jin-Long-Cao-s-Statistical-Blog/tree/master/content/post" class="uri">https://github.com/JinLong-Cao/Jin-Long-Cao-s-Statistical-Blog/tree/master/content/post</a></em></p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<ul>
+<li><p>Government of Canada, 2020. “People who are at high risk for severe illness from COVID-19.” Retrieved from: <a href="https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html" class="uri">https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html</a></p></li>
+<li><p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.</p></li>
+<li><p>Lee, Mie-Yun (2002). “Conducting Surveys and Focus Groups.” Entrepreneur. Retried from: www.entrepreneur.com/article/55680.</p></li>
+<li><p>Lemon, J. (2006) Plotrix: a package in the red light district of R. R-News, 6(4):
+8-12.</p></li>
+<li><p>Mae Jones, Alexandra (2020). “Mapping out Canada’s COVID-19 hotspots: new modelling shows where cases are rising.” CTV News. Bell Media. Retrieved from: <a href="https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985" class="uri">https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985</a></p></li>
+<li><p>Ministry of Health Ontario. 2020. “Creating a social circle during COVID-19” Retrieved from: <a href="https://www.ontario.ca/page/create-social-circle-during-covid-19" class="uri">https://www.ontario.ca/page/create-social-circle-during-covid-19</a></p></li>
+<li><p>Public Health Ontario. 2020. “COVID-19 Public Resources” Retrieved from: <a href="https://www.publichealthontario.ca/en/diseases-and-conditions/infectious-diseases/respiratory-diseases/novel-coronavirus/public-resources" class="uri">https://www.publichealthontario.ca/en/diseases-and-conditions/infectious-diseases/respiratory-diseases/novel-coronavirus/public-resources</a></p></li>
+<li><p>R Core Team (2020). R: A language and environment for statistical
+computing. R Foundation for Statistical Computing, Vienna, Austria.
+URL <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p></li>
+<li><p>Statistics Canada, 2020. Table 17-10-0005-01 Population estimates on July 1st, by age and sex</p></li>
+<li><p>Wickham et al., (2019). Welcome to the tidyverse. Journal of Open</p></li>
+<li><p>Wu, Changbao and Mary E. Thompson. 2020. Sampling Theory and Practice, Springer.
+Source Software, 4(43), 1686, <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p></li>
+<li><p>Yihui Xie (2020). blogdown: Create Blogs and Websites with R Markdown. R
+package version 0.20.</p></li>
+</ul>
+</div>
+</div>

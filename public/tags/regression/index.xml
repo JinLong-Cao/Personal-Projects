@@ -6,7 +6,16 @@
     <description>Recent content in regression on Jin Long&#39;s Personal Projects</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate><atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Investigating Perception and Compliance with Ontario&#39;s COVID-19 Containment Measures</title>
+      <link>/2020/10/02/investigating-perception-and-compliance-with-ontarios-covid-19-containment-measures/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/10/02/investigating-perception-and-compliance-with-ontarios-covid-19-containment-measures/</guid>
+      <description>Executive summaryPetit Poll has been asked by the Conservative Party of Ontario to survey the Ontario public in regards to the current COVID-19 pandemic to better understand whether people are likely to vote for the Party in the upcoming general election. We conducted a mock survey using simulated respondents to give a cursory look into the broader trends in public health awareness regarding COVID-19. However, since our survey included questions relying on respondents to report their personal habits and knowledge regarding COVID-19, we believe these responses could be embellished to view the respondent in a more favourable light.</description>
+    </item>
+    
     <item>
       <title>Hello R Markdown</title>
       <link>/2015/07/23/hello-r-markdown/</link>
